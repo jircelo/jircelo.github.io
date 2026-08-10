@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>지르셀루 싸커 공식 홈페이지</title>
+<meta name="description" content="지르셀루 싸커 - 부산 금정구 프리미엄 축구 레슨 센터. 1:1 맞춤 레슨, 그룹 레슨, 엘리트 코칭. 누적 회원 1,000명+, 재가입률 90%.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans KR','Apple SD Gothic Neo',sans-serif;background:#0a0a0a;color:#fff;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 24px}
+.section{padding:90px 0}
+.section--dark{background:#0a0a0a}
+.section--light{background:#f5f5f5}
+.eyebrow{font-size:11px;letter-spacing:4px;color:#555;font-weight:500;margin-bottom:14px}
+.eyebrow--dark{color:#999}
+.section__title{font-size:clamp(32px,5vw,56px);font-weight:900;letter-spacing:-2px;line-height:1.05;color:#fff}
+.section__title--dark{color:#000}
+.section__header{margin-bottom:56px}
+.section__header--center{text-align:center}
+.divider{width:44px;height:3px;background:#fff;margin-top:22px}
+.divider--center{margin:22px auto 0}
+.divider--dark{background:#000}
+.body-text{font-size:15px;line-height:1.8;color:#888;margin-bottom:16px}
+.two-col{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.fade-up{animation:fadeUp .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:translateY(0)}}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:none;border-radius:6px;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;padding:11px 22px;transition:all .2s ease;text-decoration:none}
+.btn--lg{padding:15px 32px;font-size:16px}
+.btn--full{width:100%}
+.btn--white{background:#fff;color:#000}
+.btn--white:hover{background:#e8e8e8;transform:translateY(-2px)}
+.btn--dark{background:#000;color:#fff}
+.btn--dark:hover{opacity:.8}
+.btn--ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn--ghost:hover{border-color:rgba(255,255,255,.7)}
+.btn--yt{background:#FF0000;color:#fff;gap:8px;border-radius:4px;padding:12px 24px;font-size:15px}
+.btn--yt:hover{background:#cc0000;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,0,0,.35)}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:10px 0;transition:all .3s ease}
+.nav.scrolled{background:rgba(10,10,10,.96);backdrop-filter:blur(16px);padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.nav__inner{max-width:1200px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+.logo-btn{background:none;border:none;cursor:pointer;padding:0}
+.nav__emblem{height:100px;width:auto;transition:height .3s}
+.nav.scrolled .nav__emblem{height:70px}
+.logo-btn:hover .nav__emblem{opacity:.85}
+.nav__links{display:flex;align-items:center;gap:4px;margin-right:8px}
+.nav__link{background:none;border:none;color:#aaa;font-size:14px;cursor:pointer;padding:8px 12px;border-radius:6px;transition:color .2s;font-family:inherit;text-decoration:none}
+.nav__link:hover{color:#fff}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.bar{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+.hamburger.open .bar:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open .bar:nth-child(2){opacity:0}
+.hamburger.open .bar:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;flex-direction:column;padding:8px 24px 20px;background:rgba(10,10,10,.98);border-top:1px solid rgba(255,255,255,.07)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{color:#ccc;font-size:16px;padding:14px 16px;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06);border-radius:6px;margin:0 -16px;transition:background .15s,color .15s;-webkit-tap-highlight-color:transparent}
+.mobile-menu a:hover,.mobile-menu a:active{background:rgba(255,255,255,.08);color:#fff}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:100px}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease}
+.hero-slide.active{opacity:1}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.88) 50%,rgba(0,0,0,.3))}
+.hero-content{position:relative;z-index:2;width:100%;padding:40px 24px 100px}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,12vw,138px);font-weight:400;line-height:.9;letter-spacing:2px;margin-bottom:22px}
+.hero-title .out{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.4)}
+.hero-sub{font-size:clamp(13px,1.8vw,16px);line-height:1.7;color:#ccc;margin-bottom:36px}
+.hero-loc{font-size:13px;color:#888;margin-top:6px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.hero-dots{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.hero-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.3);border:none;cursor:pointer;transition:all .3s}
+.hero-dot.active{background:#fff;width:22px;border-radius:3px}
+
+/* STATS */
+.stats{border-top:1px solid rgba(255,255,255,.07);border-bottom:1px solid rgba(255,255,255,.07);background:#0a0a0a}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stats-item{display:flex;flex-direction:column;align-items:center;padding:36px 16px;border-right:1px solid rgba(255,255,255,.07);background:#0a0a0a}
+.stats-item:last-child{border-right:none}
+.stats-num{font-size:clamp(20px,3.5vw,38px);font-weight:900;letter-spacing:-1px}
+.stats-num--accent{color:#fff;text-shadow:0 0 20px rgba(255,255,255,.4)}
+.stats-label{font-size:12px;color:#666;margin-top:6px;letter-spacing:.5px;text-align:center}
+
+/* ABOUT */
+.feature-list{list-style:none;margin-top:28px;display:flex;flex-direction:column;gap:12px}
+.feature-list li{display:flex;align-items:center;gap:10px;font-size:15px;color:#ccc}
+.feature-list li::before{content:"\25AA";color:#fff;font-size:9px}
+
+/* GALLERY */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:8px}
+.gallery-item{aspect-ratio:4/3;background-size:cover;background-position:center;border-radius:6px;cursor:pointer;transition:transform .2s,opacity .2s;position:relative;overflow:hidden}
+.gallery-item::after{content:"🔍";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:28px;background:rgba(0,0,0,.4);opacity:0;transition:opacity .2s}
+.gallery-item:hover{transform:scale(1.03)}
+.gallery-item:hover::after{opacity:1}
+.gallery-cap{font-size:12px;color:#555;text-align:center;letter-spacing:1px;margin-top:4px}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.95);z-index:1000}
+.lightbox.open{display:block}
+.lightbox img{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:calc(100vw - 32px);max-height:calc(100vh - 90px);width:auto;height:auto;object-fit:contain;border-radius:6px;cursor:pointer}
+.lightbox-close{position:fixed;top:18px;right:20px;font-size:30px;color:#fff;cursor:pointer;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);line-height:1;z-index:1200;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;padding:0;transition:background .2s}
+.lightbox-close:hover{background:rgba(255,255,255,.3)}
+
+/* COACH */
+.coach-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:64px;align-items:start}
+.coach-photo-wrap{position:relative}
+.coach-photo{width:100%;border-radius:12px;display:block;filter:grayscale(10%)}
+.coach-badge{position:absolute;bottom:16px;left:16px;background:#000;color:#fff;font-size:11px;letter-spacing:3px;font-weight:700;padding:8px 14px;border-radius:4px}
+.coach-eng{font-size:13px;color:#888;letter-spacing:2px;margin-top:4px}
+.coach-sections{margin-top:28px;display:flex;flex-direction:column;gap:24px}
+.coach-sec-title{font-size:11px;letter-spacing:3px;color:#555;font-weight:700;margin-bottom:12px;border-bottom:1px solid #ddd;padding-bottom:8px}
+.qual-item{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px}
+.qual-bullet{color:#000;font-size:10px;margin-top:5px;flex-shrink:0}
+.qual-title{font-size:14px;font-weight:700;color:#000}
+.qual-sub{font-size:12px;color:#888}
+.career-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.career-list li{font-size:14px;color:#444;display:flex;align-items:flex-start;gap:8px}
+.career-bullet{color:#000;font-size:10px;margin-top:5px;flex-shrink:0}
+.award-item{display:flex;gap:14px;margin-bottom:8px;align-items:center}
+.award-year{font-size:12px;color:#888;font-weight:700;min-width:36px}
+
+/* PROGRAMS - 모두 흰색 */
+.prog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.prog-card{background:#f4f4f4;border-radius:14px;padding:36px 28px;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.prog-card:hover{transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
+.prog-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.prog-icon{font-size:28px}
+.prog-tag{font-size:10px;letter-spacing:3px;font-weight:700;color:#888;background:#e5e5e5;padding:5px 10px;border-radius:4px}
+.prog-title{font-size:24px;font-weight:900;letter-spacing:-1px;color:#000;margin-bottom:4px}
+.prog-sub{font-size:13px;color:#777}
+.prog-div{height:1px;background:#ddd;margin:20px 0}
+.prog-desc{font-size:14px;line-height:1.75;color:#555;margin-bottom:16px}
+.prog-feats{list-style:none;display:flex;flex-direction:column;gap:7px;flex:1;margin-bottom:24px}
+.prog-feats li{font-size:13px;color:#777;padding-left:16px;position:relative}
+.prog-feats li::before{content:"✓";position:absolute;left:0;color:#000}
+.prog-btn{align-self:flex-start}
+.kakao-btn{background:#111;color:#fff;gap:8px;border:1.5px solid #333;border-radius:6px;transition:all .22s}
+.kakao-btn:hover{background:#FEE500;color:#000;border-color:#FEE500;transform:translateY(-2px);box-shadow:0 6px 18px rgba(254,229,0,.3)}
+.kakao-btn:hover svg{fill:#000}
+
+/* SCHEDULE */
+.sched-wrap{border:1px solid rgba(0,0,0,.1);border-radius:12px;overflow:hidden}
+.sched-row{display:flex;align-items:stretch;border-bottom:1px solid rgba(0,0,0,.07)}
+.sched-row:last-of-type{border-bottom:none}
+.sched-day{display:flex;flex-direction:column;align-items:center;justify-content:center;min-width:72px;padding:16px 8px;background:#000;gap:2px}
+.sched-day-en{font-size:14px;font-weight:900;color:#fff;letter-spacing:1px}
+.sched-day-kr{font-size:12px;color:#fff;font-weight:700}
+.sched-items{display:flex;flex-wrap:wrap;flex:1}
+.sched-item{display:flex;align-items:center;gap:14px;padding:14px 18px;border-left:1px solid rgba(0,0,0,.06);flex:1;min-width:220px}
+.sched-item--coming{background:rgba(0,0,0,.02);opacity:.6}
+
+
+.sched-cls{font-size:11px;font-weight:700;color:#fff;background:#000;padding:4px 8px;border-radius:4px;white-space:nowrap}
+.sched-item--coming .sched-cls{background:#888}
+
+
+.sched-time{font-size:13px;font-weight:700;color:#222;white-space:nowrap}
+.sched-desc{font-size:12px;color:#666;flex:1}
+.sched-cap{font-size:11px;color:#999;white-space:nowrap}
+.sched-note{font-size:12px;color:#999;padding:14px 20px;background:rgba(0,0,0,.02);border-top:1px solid rgba(0,0,0,.06);text-align:right}
+
+/* YOUTUBE */
+.yt-header{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.yt-logo-wrap{display:flex;align-items:center;gap:6px}
+.yt-badge{background:#FF0000;border-radius:4px;padding:4px 8px;display:flex;align-items:center}
+.yt-badge-text{color:#fff;font-size:11px;font-weight:700;letter-spacing:1px}
+.yt-channel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.yt-vid-card{background:#111;border-radius:10px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;display:block;cursor:pointer}
+.yt-vid-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.5)}
+.yt-cover{position:relative;padding-top:56.25%;overflow:hidden;background:#1a1a1a;cursor:pointer}
+.yt-cover img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.yt-vid-card:hover .yt-cover img{transform:scale(1.04)}
+.yt-play-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:36px;height:36px;background:rgba(255,0,0,.88);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .2s,background .2s;pointer-events:none}
+.yt-vid-card:hover .yt-play-btn{transform:translate(-50%,-50%) scale(1.15);background:rgba(255,0,0,1)}
+.yt-thumb-wrap svg{opacity:.5}
+
+
+.yt-vid-info{padding:0}
+.yt-vid-title{font-size:13px;font-weight:700;color:#fff;line-height:1.4;padding:10px 12px}
+.yt-vid-sub{display:none}
+
+/* SNS */
+.sns-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sns-card{display:flex;align-items:center;gap:16px;padding:22px;border:1px solid rgba(255,255,255,.1);border-radius:12px;text-decoration:none;color:#fff;background:#111;transition:all .25s ease;position:relative;overflow:hidden}
+.sns-card::before{content:"";position:absolute;inset:0;background:var(--brand);opacity:0;transition:opacity .25s}
+.sns-card:hover::before{opacity:1}
+.sns-card:hover{border-color:var(--brand);transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.sns-icon-wrap{width:46px;height:46px;background:var(--brand);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative;z-index:1;transition:transform .25s}
+.sns-card:hover .sns-icon-wrap{transform:scale(1.1)}
+.sns-text{position:relative;z-index:1;flex:1}
+.sns-name{font-size:14px;font-weight:700}
+.sns-sub{font-size:11px;color:rgba(255,255,255,.6);margin-top:3px}
+.sns-card:hover .sns-sub{color:rgba(255,255,255,.8)}
+.sns-arr{margin-left:auto;font-size:18px;color:rgba(255,255,255,.4);position:relative;z-index:1;transition:transform .25s,color .25s}
+.sns-card:hover .sns-arr{transform:translateX(4px);color:#fff}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:56px;align-items:start}
+.form-group{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.form-label{font-size:13px;color:#ccc;letter-spacing:.5px;font-weight:600}
+.form-input{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px;padding:13px 16px;font-size:15px;color:#fff;outline:none;font-family:inherit;transition:border .2s;resize:vertical}
+.form-input::placeholder{color:#555}
+.form-input:focus{border-color:rgba(255,255,255,.35)}
+.contact-info-item{padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.contact-info-label{font-size:10px;letter-spacing:2px;color:#555;font-weight:600;margin-bottom:6px}
+.contact-info-value{font-size:15px;color:#ccc;line-height:1.6;white-space:pre-line}
+
+/* VIDEO CATEGORIES */
+.vid-cat-section{margin-top:16px}
+.vid-cat-tabs{display:flex;gap:0;margin-bottom:24px;border:1px solid rgba(255,255,255,.1);border-radius:8px;overflow:hidden}
+.vid-tab{flex:1;padding:14px;background:transparent;border:none;color:#888;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;transition:all .2s;border-right:1px solid rgba(255,255,255,.1)}
+.vid-tab:last-child{border-right:none}
+.vid-tab.active{background:#fff;color:#000}
+.vid-tab-content{display:none}
+.vid-tab-content.active{display:block}
+.vid-placeholder{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.vid-placeholder-item{background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.15);border-radius:10px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#555;font-size:13px;cursor:pointer;transition:border-color .2s}
+.vid-placeholder-item:hover{border-color:rgba(255,255,255,.3);color:#888}
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.review-placeholder-item{background:rgba(255,255,255,.04);border:1px dashed rgba(255,255,255,.15);border-radius:10px;aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#555;font-size:14px}
+@media(max-width:768px){.review-grid{grid-template-columns:1fr}}
+
+/* FOOTER */
+.footer{border-top:1px solid rgba(255,255,255,.07);padding:40px 0;background:#0a0a0a;position:relative;z-index:1}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.footer-emblem{height:52px;width:auto}
+.footer-copy{font-size:12px;color:#444;margin-top:8px;line-height:1.7}
+.footer-sns{display:flex;gap:14px}
+.footer-sns-link{transition:all .2s;display:flex;opacity:.85;text-decoration:none;cursor:pointer;-webkit-tap-highlight-color:rgba(0,0,0,0)}
+.footer-sns-link:hover,.footer-sns-link:active{opacity:1;filter:brightness(1.4);transform:scale(1.15)}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+ .nav__links{display:none}.hamburger{display:flex}
+ .nav__emblem{height:64px}.nav.scrolled .nav__emblem{height:52px}
+ .hero{padding-top:80px}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}
+ .stats-grid{grid-template-columns:repeat(2,1fr)}
+ .stats-item:nth-child(2){border-right:none}
+ .stats-item:nth-child(3){border-top:1px solid rgba(255,255,255,.07)}
+ .stats-item:nth-child(4){border-right:none;border-top:1px solid rgba(255,255,255,.07)}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .two-col{grid-template-columns:1fr;gap:40px}
+ .coach-grid{grid-template-columns:1fr;gap:32px}.coach-photo{max-width:320px}
+ .prog-grid{grid-template-columns:1fr}
+ .sched-desc{display:none}
+ .yt-channel-grid{grid-template-columns:repeat(2,1fr)}
+ .sns-grid{grid-template-columns:1fr}
+ .contact-grid{grid-template-columns:1fr;gap:36px}
+ .vid-placeholder{grid-template-columns:repeat(2,1fr)}
+ .section{padding:64px 0}
+}
+@media(max-width:480px){
+ .container{padding:0 18px}
+ .gallery{grid-template-columns:repeat(2,1fr)}
+ .yt-channel-grid{grid-template-columns:repeat(2,1fr)}
+ .vid-placeholder{grid-template-columns:1fr}
+}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#0a0a0a}
+::-webkit-scrollbar-thumb{background:#333;border-radius:4px}
+
+/* REVIEW SLIDER */
+.rev-platform-tabs{display:flex;gap:0;margin-bottom:28px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.rev-ptab{flex:1;padding:14px 20px;background:transparent;border:none;color:#888;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .25s;border-right:1px solid rgba(255,255,255,.1)}
+.rev-ptab:last-child{border-right:none}
+.rev-ptab.active{background:var(--pcolor);color:#fff}
+.rev-ptab:hover:not(.active){background:rgba(255,255,255,.06);color:#fff}
+.rev-count{background:rgba(255,255,255,.2);border-radius:10px;padding:2px 8px;font-size:11px}
+.rev-slider-wrap{position:relative;overflow:hidden;padding:0 0 40px}
+.rev-slider{display:flex;gap:20px;transition:transform .45s cubic-bezier(.25,.1,.25,1);will-change:transform}
+.rev-card{flex:0 0 calc(33.33% - 14px);background:#161616;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;transition:border-color .25s,transform .25s}
+.rev-card:hover{border-color:rgba(255,255,255,.25);transform:translateY(-4px)}
+.rev-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.rev-name{font-size:14px;font-weight:700;color:#fff}
+.rev-type{font-size:11px;color:#888;margin-top:3px;letter-spacing:.5px}
+.rev-stars{color:#FFB800;font-size:14px;display:flex;align-items:center;gap:4px}
+.rev-stars span{color:#fff;font-weight:700;font-size:13px}
+.rev-text{font-size:13px;line-height:1.75;color:#aaa;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;transition:all .3s}
+.rev-tags{display:flex;flex-wrap:wrap;gap:6px}
+.rev-tag{font-size:11px;background:rgba(255,255,255,.07);color:#888;border-radius:12px;padding:4px 10px}
+.rev-nav{position:absolute;top:50%;transform:translateY(-60%);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#fff;width:40px;height:40px;border-radius:50%;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;line-height:1}
+.rev-nav:hover{background:rgba(255,255,255,.25)}
+.rev-prev{left:0}
+.rev-next{right:0}
+.rev-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.rev-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:all .3s}
+.rev-dot.active{background:#fff;width:18px;border-radius:3px}
+@media(max-width:768px){
+  .rev-card{flex:0 0 calc(100% - 0px)}
+  .rev-nav{display:none}
+}
+@media(min-width:769px) and (max-width:1024px){
+  .rev-card{flex:0 0 calc(50% - 10px)}
+}
+
+
+/* REVIEW SLIDER */
+.rev-platform-tabs{display:flex;gap:0;margin-bottom:28px;border-radius:10px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.rev-ptab{flex:1;padding:14px 20px;background:transparent;border:none;color:#888;font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .25s;border-right:1px solid rgba(255,255,255,.1)}
+.rev-ptab:last-child{border-right:none}
+.rev-ptab.active{background:var(--pcolor);color:#fff}
+.rev-ptab:hover:not(.active){background:rgba(255,255,255,.06);color:#fff}
+.rev-slider-wrap{position:relative;overflow:hidden;padding:0 40px 40px}
+.rev-slider{display:flex;gap:20px;transition:transform .45s cubic-bezier(.25,.1,.25,1);will-change:transform}
+.rev-card{flex:0 0 calc(33.33% - 14px);background:#161616;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:24px;transition:border-color .25s,transform .25s}
+.rev-card:hover{border-color:rgba(255,255,255,.25);transform:translateY(-4px)}
+.rev-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}
+.rev-name{font-size:14px;font-weight:700;color:#fff}
+.rev-type{font-size:11px;color:#888;margin-top:3px;letter-spacing:.5px}
+.rev-stars{color:#FFB800;font-size:15px;display:flex;align-items:center;gap:4px;flex-shrink:0}
+.rev-stars span{color:#fff;font-weight:700;font-size:12px}
+.rev-text{font-size:13px;line-height:1.75;color:#aaa;margin-bottom:10px;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;transition:all .3s}
+.rev-tags{display:flex;flex-wrap:wrap;gap:6px}
+.rev-tag{font-size:11px;background:rgba(255,255,255,.07);color:#888;border-radius:12px;padding:4px 10px}
+.rev-nav{position:absolute;top:40%;transform:translateY(-50%);background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#fff;width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;line-height:1}
+.rev-nav:hover{background:rgba(255,255,255,.2)}
+.rev-prev{left:0}.rev-next{right:0}
+.rev-dots{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);display:flex;gap:6px}
+.rev-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:all .3s}
+.rev-dot.active{background:#fff;width:18px;border-radius:3px}
+.rev-links{display:flex;gap:10px;justify-content:center;margin-top:32px}
+.rev-link-btn{background:#111;color:#fff;border:1px solid rgba(255,255,255,.15);transition:all .25s;flex:1;justify-content:center;text-align:center;font-size:13px}
+.rev-link-btn:hover{background:var(--hcolor);border-color:var(--hcolor);transform:translateY(-2px)}
+@media(max-width:768px){
+  .rev-card{flex:0 0 calc(100% - 0px)}
+  .rev-nav{display:none}
+  .rev-slider-wrap{padding:0 0 40px}
+}
+@media(min-width:769px) and (max-width:1024px){.rev-card{flex:0 0 calc(50% - 10px)}}
+.rev-text.expanded{display:block !important;-webkit-line-clamp:unset !important}
+.rev-expand-btn{background:none;border:none;color:rgba(255,255,255,.35);font-size:12px;cursor:pointer;padding:0 0 12px 0;font-family:inherit;transition:color .2s;display:block}
+.rev-expand-btn:hover{color:rgba(255,255,255,.8)}
+
+.cont-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:8px}
+.cont-card{border-radius:12px;overflow:hidden;text-decoration:none;display:block;transition:transform .2s,box-shadow .2s}
+.cont-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,.5)}
+.cont-card--yt{background:#111;border:1px solid rgba(255,255,255,.08)}
+.cont-card--ig{background:#111;border:1px solid rgba(255,255,255,.08)}
+.cont-thumb{position:relative;padding-top:56.25%;overflow:hidden;background:#1a1a1a}
+.cont-thumb img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;transition:transform .3s}
+.cont-card:hover .cont-thumb img{transform:scale(1.05)}
+.cont-thumb--ig{padding-top:100%;background:linear-gradient(135deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D,#F56040,#F77737,#FCAF45)}
+.ig-thumb-inner{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px}
+.ig-icon{color:rgba(255,255,255,.9)}
+.ig-reel-label{color:rgba(255,255,255,.8);font-size:13px;font-weight:700;letter-spacing:2px}
+.cont-play-badge{position:absolute;top:8px;left:8px;border-radius:4px;padding:3px 8px;font-size:11px;font-weight:700;display:flex;align-items:center;gap:4px;color:#fff}
+.yt-badge{background:#FF0000}
+.ig-badge{background:linear-gradient(45deg,#833AB4,#E1306C)}
+.cont-play-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:44px;background:rgba(0,0,0,.6);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.cont-card:hover .cont-play-icon{background:rgba(255,0,0,.85)}
+.cont-card--ig:hover .cont-play-icon{background:rgba(193,53,132,.85)}
+.cont-info{padding:12px}
+.cont-title{font-size:13px;font-weight:700;color:#fff;line-height:1.4}
+.cont-sub{font-size:11px;color:#888;margin-top:4px}
+@media(max-width:768px){.cont-grid{grid-template-columns:1fr;gap:10px}}
+
+.cont-thumb--portrait{padding-top:125%;/* 4:5 세로 비율 */}
+.cont-thumb--portrait img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;display:block;transition:transform .3s}
+.cont-thumb--ig-grad{background:linear-gradient(135deg,#405DE6,#5851DB,#833AB4,#C13584,#E1306C,#FD1D1D,#F56040,#F77737,#FCAF45)}
+.cont-desc-box{font-size:11px;color:#aaa;background:rgba(255,255,255,.05);border-radius:6px;padding:8px 10px;margin-top:8px;line-height:1.5;border:1px solid rgba(255,255,255,.08)}
+
+/* LESSON PHOTOS */
+.lp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.lp-item{position:relative;overflow:hidden;border-radius:10px;cursor:pointer;background:#111}
+.lp-item.lp-wide{grid-column:span 2}
+.lp-item img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3;transition:transform .35s ease}
+.lp-item.lp-wide img{aspect-ratio:16/9}
+.lp-item:hover img{transform:scale(1.05)}
+.lp-overlay{position:absolute;inset:0;background:rgba(0,0,0,0);display:flex;align-items:center;justify-content:center;transition:all .25s;opacity:0}
+.lp-item:hover .lp-overlay{background:rgba(0,0,0,.45);opacity:1}
+.lp-lightbox{display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,.96);z-index:1000}
+.lp-lightbox.open{display:block}
+.lp-stage{position:absolute;top:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;padding:60px 16px 30px;box-sizing:border-box}
+.lp-stage img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;border-radius:6px;display:block;margin:auto;cursor:pointer}
+.lb-nav-zone{position:absolute;top:80px;bottom:0;width:30%;cursor:pointer;z-index:1100}
+.lb-zone-left{left:0}
+.lb-zone-right{right:0}
+@media(max-width:480px){.lp-grid{gap:6px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav__inner">
+    <button class="logo-btn" onclick="scrollToId('hero')">
+      <img decoding="async" src="photo01.png" alt="JIRCELO SOCCER" class="nav__emblem">
+    </button>
+    <div class="nav__links">
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('about')">소개</a>
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('coach')">코치</a>
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('programs')">프로그램</a>
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('schedule')">일정</a>
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('sns')">SNS</a>
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('lesson-photos')">현장</a>
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('reviews')">후기</a>
+      <a class="nav__link" href="javascript:void(0)" onclick="scrollToId('contact')">문의</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="javascript:void(0)" onclick="scrollToId('about');closeMenu()">소개</a>
+    <a href="javascript:void(0)" onclick="scrollToId('coach');closeMenu()">코치</a>
+    <a href="javascript:void(0)" onclick="scrollToId('programs');closeMenu()">프로그램</a>
+    <a href="javascript:void(0)" onclick="scrollToId('schedule');closeMenu()">일정</a>
+    <a href="javascript:void(0)" onclick="scrollToId('sns');closeMenu()">SNS</a>
+    <a href="javascript:void(0)" onclick="scrollToId('reviews');closeMenu()">후기</a>
+    <a href="javascript:void(0)" onclick="scrollToId('contact');closeMenu()">문의</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <div class="hero-slides" id="heroSlides"><div class="hero-slide" style="background-image:url(photo02.jpg)"></div><div class="hero-slide" style="background-image:url(photo03.jpg)"></div><div class="hero-slide" style="background-image:url(photo04.jpg)"></div><div class="hero-slide" style="background-image:url(photo05.jpg)"></div><div class="hero-slide" style="background-image:url(photo06.jpg)"></div><div class="hero-slide" style="background-image:url(photo07.jpg)"></div><div class="hero-slide" style="background-image:url(photo08.jpg)"></div><div class="hero-slide" style="background-image:url(photo09.jpg)"></div><div class="hero-overlay"></div></div>
+  <div class="container hero-content fade-up">
+    <h1 class="hero-title">JIRCELO<br><span class="out">SOCCER</span></h1>
+    <p class="hero-sub">PREMIUM FOOTBALL LESSON CENTER<br><span style="opacity:.6">1:1 맞춤 레슨 · 그룹 레슨 · 엘리트 코칭</span></p>
+    
+    <div class="hero-actions" style="margin-top:24px">
+      <a class="btn btn--white btn--lg" href="https://open.kakao.com/me/jircelo" target="_blank" rel="noopener">레슨 문의하기</a>
+      <a class="btn btn--ghost btn--lg" onclick="scrollToId('programs')" href="javascript:void(0)">프로그램 보기 →</a>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots"><button class="hero-dot" data-i="0"></button><button class="hero-dot" data-i="1"></button><button class="hero-dot" data-i="2"></button><button class="hero-dot" data-i="3"></button><button class="hero-dot" data-i="4"></button><button class="hero-dot" data-i="5"></button><button class="hero-dot" data-i="6"></button><button class="hero-dot" data-i="7"></button></div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stats-item"><span class="stats-num">1,000+</span><span class="stats-label">누적 회원수</span></div>
+    <div class="stats-item"><span class="stats-num stats-num--accent">90%</span><span class="stats-label">재가입률</span></div>
+    <div class="stats-item"><span class="stats-num stats-num--accent">0%</span><span class="stats-label">엘리트 선수 이탈률</span></div>
+    <div class="stats-item"><span class="stats-num">AFC/KFA</span><span class="stats-label">공인 지도자 자격</span></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="section section--dark">
+  <div class="container two-col reveal">
+    <div>
+      <p class="eyebrow">ABOUT</p>
+      <h2 class="section__title">프리미엄<br>축구 레슨센터</h2>
+      <div class="divider"></div>
+      <p style="font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:4px;color:rgba(255,255,255,.2);margin-top:12px">지르셀루 싸커</p>
+    </div>
+    <div>
+      <p class="body-text">지르셀루 싸커는 <strong style="color:#fff">1,000명 이상의 누적 회원</strong>을 보유한 부산 대표 프리미엄 축구 레슨 센터입니다. 체계적인 커리큘럼과 맞춤형 코칭으로 초보부터 엘리트 선수까지 함께합니다.</p>
+      <p class="body-text">수강생의 <strong style="color:#fff;font-size:17px">90% 재가입률</strong>과 엘리트 선수 <strong style="color:#fff;font-size:17px;text-shadow:0 0 12px rgba(255,255,255,.5)">이탈률 0%</strong>가 증명하는 신뢰.</p>
+      <ul class="feature-list">
+        <li>맞춤형 1:1 / 그룹 코칭</li>
+        <li>엘리트·아마추어 전담 커리큘럼</li>
+        <li>국가공인 전문 스포츠 지도사</li>
+        <li>📍 부산대학로 38번길 33 B1</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="section section--dark" style="padding-top:0">
+  <div class="container">
+    <div class="gallery reveal"><div class="gallery-item" style="background-image:url(photo02.jpg)" onclick="openLightbox(0)" title="클릭하여 확대"></div><div class="gallery-item" style="background-image:url(photo03.jpg)" onclick="openLightbox(1)" title="클릭하여 확대"></div><div class="gallery-item" style="background-image:url(photo04.jpg)" onclick="openLightbox(2)" title="클릭하여 확대"></div><div class="gallery-item" style="background-image:url(photo05.jpg)" onclick="openLightbox(3)" title="클릭하여 확대"></div><div class="gallery-item" style="background-image:url(photo06.jpg)" onclick="openLightbox(4)" title="클릭하여 확대"></div><div class="gallery-item" style="background-image:url(photo07.jpg)" onclick="openLightbox(5)" title="클릭하여 확대"></div><div class="gallery-item" style="background-image:url(photo08.jpg)" onclick="openLightbox(6)" title="클릭하여 확대"></div><div class="gallery-item" style="background-image:url(photo09.jpg)" onclick="openLightbox(7)" title="클릭하여 확대"></div></div>
+    <p class="gallery-cap">지르셀루 싸커 전용 실내 구장 · 클릭하면 크게 볼 수 있어요</p>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <div class="lb-nav-zone lb-zone-left" onclick="lbPrev()"></div>
+  <img id="lbImg" src="" alt="">
+  <div class="lb-nav-zone lb-zone-right" onclick="lbNext()"></div>
+</div>
+
+<!-- COACH -->
+<section id="coach" class="section section--light">
+  <div class="container coach-grid reveal">
+    <div class="coach-photo-wrap">
+      <img decoding="async" src="photo10.jpg" alt="박지호 코치" loading="lazy" class="coach-photo">
+      <div class="coach-badge">HEAD COACH</div>
+    </div>
+    <div>
+      <p class="eyebrow eyebrow--dark">COACH</p>
+      <h2 class="section__title section__title--dark">박지호</h2>
+      <p class="coach-eng">PARK JI HO · JIRCELO</p>
+      <div class="divider divider--dark"></div>
+      <div class="coach-sections">
+        <div><h4 class="coach-sec-title">자격증</h4>
+<div class="qual-item">
+  <span class="qual-bullet">●</span>
+  <div><div class="qual-title">전문 스포츠지도사 축구 2급 🏆</div><div class="qual-sub">문화체육관광부 국가자격증</div></div>
+</div>
+<div class="qual-item">
+  <span class="qual-bullet">●</span>
+  <div><div class="qual-title">AFC/KFA 'C' License 🏅</div><div class="qual-sub">대한축구협회 지도자 자격증</div></div>
+</div>
+<div class="qual-item">
+  <span class="qual-bullet">●</span>
+  <div><div class="qual-title">스포츠 심리상담사 2급 🧠</div><div class="qual-sub">공인 자격증</div></div>
+</div>
+</div>
+        <div><h4 class="coach-sec-title">경력</h4><ul class="career-list"><li><span class="career-bullet">●</span> 숨고 부산 지역 1위 축구레슨 🥇</li><li><span class="career-bullet">●</span> KHT 일동 U-15 코치 (2021~2022)</li><li><span class="career-bullet">●</span> 지르셀루 싸커 대표 (2024~현재)</li><li><span class="career-bullet">●</span> 다수 초·중학교 스포츠 클럽 강사</li><li><span class="career-bullet">●</span> 다수 기업팀 코칭</li><li><span class="career-bullet">●</span> 축구 교육 유튜브 "지르셀루" 운영</li></ul></div>
+        <div><h4 class="coach-sec-title">수상 경력</h4>
+<div class="award-item"><span class="award-year">2020</span><span style="color:#222">전국 대학축구 U리그 왕중왕전 3위</span></div>
+<div class="award-item"><span class="award-year">2021</span><span style="color:#222">전국 중등대회 춘계 우승 (지도자)</span></div>
+<div class="award-item"><span class="award-year">2022</span><span style="color:#222">전국 중등대회 춘계 준우승 (지도자)</span></div>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs" class="section section--dark">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <p class="eyebrow">PROGRAMS</p>
+      <h2 class="section__title">레슨 프로그램</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="prog-grid reveal">
+<div class="prog-card">
+  <div class="prog-top"><span class="prog-icon">⚽</span><span class="prog-tag">AMATEUR</span></div>
+  <h3 class="prog-title">아마추어 레슨</h3>
+  <p class="prog-sub">입문·취미·성인반</p>
+  <div class="prog-div"></div>
+  <p class="prog-desc">기초 기술부터 실전 감각까지 체계적으로 배웁니다.<br><span style="color:#111;font-weight:700">매주 금요일 지르셀루FC 매치데이</span></p>
+  <ul class="prog-feats">
+    <li>기초반 / 중급반 / 심화반</li>
+    <li>소그룹 단체레슨 (정원 8명)</li>
+    <li>개인 맞춤 피드백</li>
+  </ul>
+  <a href="https://open.kakao.com/me/jircelo" target="_blank" rel="noopener" class="btn prog-btn kakao-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3C6.477 3 2 6.477 2 10.86c0 2.787 1.697 5.226 4.258 6.705l-.863 3.22c-.074.274.217.497.459.344l3.865-2.553A12.32 12.32 0 0 0 12 18.72c5.523 0 10-3.477 10-7.86S17.523 3 12 3z"/></svg>
+        카카오톡 레슨 문의
+      </a>
+</div>
+<div class="prog-card">
+  <div class="prog-top"><span class="prog-icon">🏃</span><span class="prog-tag">YOUTH</span></div>
+  <h3 class="prog-title">청소년 레슨</h3>
+  <p class="prog-sub">중고등부 아마추어</p>
+  <div class="prog-div"></div>
+  <p class="prog-desc">중고등학생 아마추어 선수를 위한 집중 레슨. 기술력과 전술을 함께 키웁니다.</p>
+  <ul class="prog-feats">
+    <li>매주 토요일 PM 4:30</li>
+    <li>기술·전술 통합 훈련</li>
+    <li>사교성 증가</li>
+  </ul>
+  <a href="https://open.kakao.com/me/jircelo" target="_blank" rel="noopener" class="btn prog-btn kakao-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3C6.477 3 2 6.477 2 10.86c0 2.787 1.697 5.226 4.258 6.705l-.863 3.22c-.074.274.217.497.459.344l3.865-2.553A12.32 12.32 0 0 0 12 18.72c5.523 0 10-3.477 10-7.86S17.523 3 12 3z"/></svg>
+        카카오톡 레슨 문의
+      </a>
+</div>
+<div class="prog-card">
+  <div class="prog-top"><span class="prog-icon">🥇</span><span class="prog-tag">ELITE</span></div>
+  <h3 class="prog-title">엘리트 레슨</h3>
+  <p class="prog-sub">선수반 개인 코칭</p>
+  <div class="prog-div"></div>
+  <p class="prog-desc">현역·엘리트 선수를 위한 1:1 집중 개인 레슨. 약점 분석부터 경기력 향상까지.</p>
+  <ul class="prog-feats">
+    <li>1:1 완전 맞춤 코칭</li>
+    <li>주말 레슨 (일정 협의)</li>
+    <li>경기 분석 및 심리 상담 멘탈 코칭</li>
+    <li>이탈률 0% 검증된 실력</li>
+  </ul>
+  <a href="https://open.kakao.com/me/jircelo" target="_blank" rel="noopener" class="btn prog-btn kakao-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3C6.477 3 2 6.477 2 10.86c0 2.787 1.697 5.226 4.258 6.705l-.863 3.22c-.074.274.217.497.459.344l3.865-2.553A12.32 12.32 0 0 0 12 18.72c5.523 0 10-3.477 10-7.86S17.523 3 12 3z"/></svg>
+        카카오톡 레슨 문의
+      </a>
+</div>
+</div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+<section id="schedule" class="section section--light">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <p class="eyebrow eyebrow--dark">CLASS SCHEDULE</p>
+      <h2 class="section__title section__title--dark">수업 일정표</h2>
+      <div class="divider divider--center divider--dark"></div>
+    </div>
+    <div class="sched-wrap reveal">
+      <div class="sched-row">
+      <div class="sched-day"><span class="sched-day-en">MON</span><span class="sched-day-kr">월</span></div>
+      <div class="sched-items"><div class="sched-item">
+          <span class="sched-cls">기초반</span>
+          <span class="sched-time">PM 8:00 ~ 9:30</span>
+          <span class="sched-desc">남성 성인 기초 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div><div class="sched-item">
+          <span class="sched-cls">기초반</span>
+          <span class="sched-time">PM 9:40 ~ 11:10</span>
+          <span class="sched-desc">남성 성인 기초 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div></div>
+    </div><div class="sched-row">
+      <div class="sched-day"><span class="sched-day-en">TUE</span><span class="sched-day-kr">화</span></div>
+      <div class="sched-items"><div class="sched-item">
+          <span class="sched-cls">중급반</span>
+          <span class="sched-time">PM 8:00 ~ 9:30</span>
+          <span class="sched-desc">남성 성인 중급 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div><div class="sched-item">
+          <span class="sched-cls">중급반</span>
+          <span class="sched-time">PM 10:00 ~ 11:30</span>
+          <span class="sched-desc">남성 성인 중급 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div></div>
+    </div><div class="sched-row">
+      <div class="sched-day"><span class="sched-day-en">WED</span><span class="sched-day-kr">수</span></div>
+      <div class="sched-items"><div class="sched-item">
+          <span class="sched-cls">중급반</span>
+          <span class="sched-time">PM 8:00 ~ 9:30</span>
+          <span class="sched-desc">남성 성인 중급 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div><div class="sched-item">
+          <span class="sched-cls">중급반</span>
+          <span class="sched-time">PM 9:40 ~ 11:10</span>
+          <span class="sched-desc">남성 성인 중급 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div></div>
+    </div><div class="sched-row">
+      <div class="sched-day"><span class="sched-day-en">THU</span><span class="sched-day-kr">목</span></div>
+      <div class="sched-items"><div class="sched-item">
+          <span class="sched-cls">중급반</span>
+          <span class="sched-time">PM 8:00 ~ 9:30</span>
+          <span class="sched-desc">남성 성인 중급 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div><div class="sched-item">
+          <span class="sched-cls">중급반</span>
+          <span class="sched-time">PM 9:40 ~ 11:10</span>
+          <span class="sched-desc">남성 성인 중급 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div></div>
+    </div><div class="sched-row">
+      <div class="sched-day"><span class="sched-day-en">SAT</span><span class="sched-day-kr">토</span></div>
+      <div class="sched-items"><div class="sched-item">
+          <span class="sched-cls">성인반</span>
+          <span class="sched-time">AM 11:00 ~ 12:30</span>
+          <span class="sched-desc">남성 성인 단체레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div><div class="sched-item sched-item--youth">
+          <span class="sched-cls">청소년반</span>
+          <span class="sched-time">PM 4:30 ~ 6:00</span>
+          <span class="sched-desc">중고등부 아마추어 레슨</span>
+          <span class="sched-cap">정원 8명</span>
+        </div><div class="sched-item sched-item--elite">
+          <span class="sched-cls">엘리트</span>
+          <span class="sched-time">주말 협의</span>
+          <span class="sched-desc">엘리트 선수 개인레슨</span>
+          
+        </div></div>
+    </div>
+      <p class="sched-note">* 기타 시간대 및 개인 레슨 문의는 카카오톡으로 연락주세요</p>
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section id="youtube" class="section section--dark">
+  <div class="container reveal">
+    <div class="section__header section__header--center">
+      <div class="yt-logo-wrap" style="justify-content:center;margin-bottom:16px">
+        <div class="yt-badge">
+          <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          <span class="yt-badge-text" style="margin-left:5px">YouTube</span>
+        </div>
+      </div>
+      <p class="eyebrow">CHANNEL</p>
+      <h2 class="section__title">축구 교육 유튜브 "지르셀루"</h2>
+      <div class="divider divider--center"></div>
+      <p class="body-text" style="margin-top:20px;max-width:500px;margin-left:auto;margin-right:auto">드리블, 패스, 슛, 전술까지 — 지르셀루의 축구 교육 콘텐츠를 무료로 만나보세요.</p>
+      <a href="https://youtube.com/@jircelo?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn--yt" style="margin-top:20px">
+        <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        채널 구독하기
+      </a>
+    </div>
+    <div class="yt-channel-grid" style="margin-top:40px">
+  <a href="https://www.youtube.com/watch?v=eWPulnuQpT8" target="_blank" rel="noopener" class="yt-vid-card">
+    <div class="yt-cover">
+      <img src="https://img.youtube.com/vi/eWPulnuQpT8/hqdefault.jpg" alt="인사이드 드리블의 비밀" loading="lazy">
+      <div class="yt-play-btn">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="yt-vid-info"><div class="yt-vid-title">인사이드 드리블의 비밀</div></div>
+  </a>
+  <a href="https://www.youtube.com/watch?v=ejmYwOYJhLA" target="_blank" rel="noopener" class="yt-vid-card">
+    <div class="yt-cover">
+      <img src="https://img.youtube.com/vi/ejmYwOYJhLA/hqdefault.jpg" alt="슈팅의 모든 것" loading="lazy">
+      <div class="yt-play-btn">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="yt-vid-info"><div class="yt-vid-title">슈팅의 모든 것</div></div>
+  </a>
+  <a href="https://www.youtube.com/watch?v=1Q6Bmkt5Ez0" target="_blank" rel="noopener" class="yt-vid-card">
+    <div class="yt-cover">
+      <img src="https://img.youtube.com/vi/1Q6Bmkt5Ez0/hqdefault.jpg" alt="빨랫줄 슈팅의 원리" loading="lazy">
+      <div class="yt-play-btn">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="yt-vid-info"><div class="yt-vid-title">빨랫줄 슈팅의 원리</div></div>
+  </a>
+  <a href="https://www.youtube.com/watch?v=QhetEHe0WWk" target="_blank" rel="noopener" class="yt-vid-card">
+    <div class="yt-cover">
+      <img src="https://img.youtube.com/vi/QhetEHe0WWk/hqdefault.jpg" alt="리프팅의 모든 것" loading="lazy">
+      <div class="yt-play-btn">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="yt-vid-info"><div class="yt-vid-title">리프팅의 모든 것</div></div>
+  </a>
+  <a href="https://www.youtube.com/watch?v=sKJ6D7wkdo4" target="_blank" rel="noopener" class="yt-vid-card">
+    <div class="yt-cover">
+      <img src="https://img.youtube.com/vi/sKJ6D7wkdo4/hqdefault.jpg" alt="축구에서 필수적인 3가지 킥 능력" loading="lazy">
+      <div class="yt-play-btn">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="yt-vid-info"><div class="yt-vid-title">축구에서 필수적인 3가지 킥 능력</div></div>
+  </a>
+  <a href="https://www.youtube.com/watch?v=s8kvD1Ii5EU" target="_blank" rel="noopener" class="yt-vid-card">
+    <div class="yt-cover">
+      <img src="https://img.youtube.com/vi/s8kvD1Ii5EU/hqdefault.jpg" alt="볼컨트롤의 비밀" loading="lazy">
+      <div class="yt-play-btn">
+        <svg viewBox="0 0 24 24" fill="white" width="18" height="18"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="yt-vid-info"><div class="yt-vid-title">볼컨트롤의 비밀</div></div>
+  </a>
+    </div>
+
+<!-- SNS -->
+<section id="sns" class="section section--dark" style="background:#080808">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <p class="eyebrow">CONNECT</p>
+      <h2 class="section__title">SNS &amp; 채널</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="sns-grid reveal"><a href="https://www.instagram.com/jircelo_official?igsh=MW8zbmk1MmRxOTRmcA==" target="_blank" rel="noopener" class="sns-card" style="--brand:#E1306C">
+      <div class="sns-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+      <div class="sns-text">
+        <div class="sns-name">지르셀루 공식 인스타그램</div>
+        <div class="sns-sub">@jircelo_official</div>
+      </div>
+      <span class="sns-arr">→</span>
+    </a><a href="https://youtube.com/@jircelo?si=ZZF6JMwf5SC-kK-z" target="_blank" rel="noopener" class="sns-card" style="--brand:#FF0000">
+      <div class="sns-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg></div>
+      <div class="sns-text">
+        <div class="sns-name">지르셀루 공식 유튜브</div>
+        <div class="sns-sub">youtube.com/@jircelo</div>
+      </div>
+      <span class="sns-arr">→</span>
+    </a><a href="https://m.blog.naver.com/jircelosoccer" target="_blank" rel="noopener" class="sns-card" style="--brand:#03C75A">
+      <div class="sns-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg></div>
+      <div class="sns-text">
+        <div class="sns-name">지르셀루 싸커 블로그</div>
+        <div class="sns-sub">blog.naver.com/jircelosoccer</div>
+      </div>
+      <span class="sns-arr">→</span>
+    </a><a href="https://open.kakao.com/me/jircelo" target="_blank" rel="noopener" class="sns-card" style="--brand:#FEE500">
+      <div class="sns-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 3C6.477 3 2 6.477 2 10.86c0 2.787 1.697 5.226 4.258 6.705l-.863 3.22c-.074.274.217.497.459.344l3.865-2.553A12.32 12.32 0 0 0 12 18.72c5.523 0 10-3.477 10-7.86S17.523 3 12 3z"/></svg></div>
+      <div class="sns-text">
+        <div class="sns-name">카카오톡 레슨 문의</div>
+        <div class="sns-sub">open.kakao.com/me/jircelo</div>
+      </div>
+      <span class="sns-arr">→</span>
+    </a><a href="https://naver.me/jircelo" target="_blank" rel="noopener" class="sns-card" style="--brand:#03C75A">
+      <div class="sns-icon-wrap"><svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C7.802 0 4 3.403 4 7.602 4 11.8 7.469 16.812 12 24c4.531-7.188 8-12.2 8-16.398C20 3.403 16.199 0 12 0zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg></div>
+      <div class="sns-text">
+        <div class="sns-name">지르셀루 싸커 위치</div>
+        <div class="sns-sub">naver.me/jircelo</div>
+      </div>
+      <span class="sns-arr">→</span>
+    </a></div>
+  </div>
+</section>
+
+<!-- VIDEO CATEGORIES (18번) -->
+<section class="section section--dark" style="background:#060606">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <p class="eyebrow">CONTENT</p>
+      <h2 class="section__title">레슨 콘텐츠</h2>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="vid-cat-section reveal">
+      <div class="vid-cat-tabs">
+        <button class="vid-tab active" onclick="switchTab(0)">🎬 실제 레슨 영상</button>
+        <button class="vid-tab" onclick="switchTab(1)">⚽ 축구 교육 영상</button>
+      </div>
+      <div class="vid-tab-content active" id="vidTab0"><div class="cont-grid"><a href="https://www.instagram.com/reel/DQjGOmuEgyi/?igsh=dTc2ZWJhYTNodGNv" target="_blank" rel="noopener" onclick="window.open('https://www.instagram.com/reel/DQjGOmuEgyi/?igsh=dTc2ZWJhYTNodGNv','_blank');return false;" class="cont-card cont-card--ig">
+      <div class="cont-thumb" style="position:relative;padding-top:56.25%;overflow:hidden;background:#111"><img decoding="async" src="photo11.jpg" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .3s"><div class="cont-play-badge ig-badge"><svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</div><div class="cont-play-icon"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="cont-info"><div class="cont-title">40대 회원님 슈팅 비포&애프터</div><div class="cont-sub">클릭하여 인스타그램에서 보기</div></div>
+    </a><a href="https://www.instagram.com/reel/DFIA-QNyltw/?igsh=a2p0eGpsNW94Mnd6" target="_blank" rel="noopener" onclick="window.open('https://www.instagram.com/reel/DFIA-QNyltw/?igsh=a2p0eGpsNW94Mnd6','_blank');return false;" class="cont-card cont-card--ig">
+      <div class="cont-thumb" style="position:relative;padding-top:56.25%;overflow:hidden;background:#111"><img decoding="async" src="photo12.jpg" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .3s"><div class="cont-play-badge ig-badge"><svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</div><div class="cont-play-icon"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="cont-info"><div class="cont-title">30대 회원님 리프팅 비포&애프터</div><div class="cont-sub">클릭하여 인스타그램에서 보기</div></div>
+    </a><a href="https://www.instagram.com/reel/DM2pBjhxoXA/?igsh=b2xqeTNjeWl1MWYw" target="_blank" rel="noopener" onclick="window.open('https://www.instagram.com/reel/DM2pBjhxoXA/?igsh=b2xqeTNjeWl1MWYw','_blank');return false;" class="cont-card cont-card--ig">
+      <div class="cont-thumb" style="position:relative;padding-top:56.25%;overflow:hidden;background:#111"><img decoding="async" src="photo13.jpg" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform .3s"><div class="cont-play-badge ig-badge"><svg viewBox="0 0 24 24" fill="white" width="12" height="12"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram</div><div class="cont-play-icon"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div></div>
+      <div class="cont-info"><div class="cont-title">10대 회원님 스텝훈련 비포&애프터</div><div class="cont-sub">클릭하여 인스타그램에서 보기</div></div>
+    </a></div><div style="text-align:center;margin-top:20px"><a href="https://www.instagram.com/jircelo_soccer?igsh=MWFyMjViajd4aXR0bA==" target="_blank" rel="noopener" onclick="window.open('https://www.instagram.com/jircelo_soccer?igsh=MWFyMjViajd4aXR0bA==','_blank');return false;" class="btn" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);color:#fff;gap:8px;padding:12px 24px"><svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>인스타그램 레슨 영상 더보기</a></div></div>
+      <div class="vid-tab-content" id="vidTab1"><div class="cont-grid"><a href="https://youtube.com/shorts/SGVkUspRaVU?si=l1PD-wOgQnVbx_9F" target="_blank" rel="noopener" onclick="window.open('https://youtube.com/shorts/SGVkUspRaVU?si=l1PD-wOgQnVbx_9F','_blank');return false;" class="cont-card cont-card--yt">
+      <div class="cont-thumb">
+        <img src="https://img.youtube.com/vi/SGVkUspRaVU/hqdefault.jpg" alt="슈팅이 약한 이유" loading="lazy">
+        <div class="cont-play-badge yt-badge">
+          <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          YouTube
+        </div>
+        <div class="cont-play-icon"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="cont-info"><div class="cont-title">슈팅이 약한 이유</div></div>
+    </a><a href="https://youtube.com/shorts/N9iTbNqDolE?si=Ozz23bCkefmTIzOI" target="_blank" rel="noopener" onclick="window.open('https://youtube.com/shorts/N9iTbNqDolE?si=Ozz23bCkefmTIzOI','_blank');return false;" class="cont-card cont-card--yt">
+      <div class="cont-thumb">
+        <img src="https://img.youtube.com/vi/N9iTbNqDolE/hqdefault.jpg" alt="1대1 드리블 필승공략법" loading="lazy">
+        <div class="cont-play-badge yt-badge">
+          <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          YouTube
+        </div>
+        <div class="cont-play-icon"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="cont-info"><div class="cont-title">1대1 드리블 필승공략법</div></div>
+    </a><a href="https://youtube.com/shorts/-jGmEvYblQI?si=vLA83ZApJpfmdL6Y" target="_blank" rel="noopener" onclick="window.open('https://youtube.com/shorts/-jGmEvYblQI?si=vLA83ZApJpfmdL6Y','_blank');return false;" class="cont-card cont-card--yt">
+      <div class="cont-thumb">
+        <img src="https://img.youtube.com/vi/-jGmEvYblQI/hqdefault.jpg" alt="축구초보 볼 마스터리 훈련법" loading="lazy">
+        <div class="cont-play-badge yt-badge">
+          <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+          YouTube
+        </div>
+        <div class="cont-play-icon"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M8 5v14l11-7z"/></svg></div>
+      </div>
+      <div class="cont-info"><div class="cont-title">축구초보 볼 마스터리 훈련법</div></div>
+    </a></div><div style="text-align:center;margin-top:20px">
+  <a href="https://youtube.com/@jircelo" target="_blank" rel="noopener" onclick="window.open('https://youtube.com/@jircelo','_blank');return false;"
+     class="btn" style="background:#FF0000;color:#fff;gap:8px;border-radius:4px;padding:12px 24px">
+    <svg viewBox="0 0 24 24" fill="white" width="16" height="16"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+    유튜브 채널 바로가기
+  </a>
+</div></div>
+      <div class="vid-tab-content" id="vidTab2">
+        <div class="vid-placeholder">
+          <div class="vid-placeholder-item">⭐<span>후기 준비중</span></div>
+          <div class="vid-placeholder-item">⭐<span>후기 준비중</span></div>
+          <div class="vid-placeholder-item">⭐<span>후기 준비중</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEW -->
+<section id="reviews" class="section section--dark" style="background:#050505">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <p class="eyebrow">REVIEWS</p>
+      <h2 class="section__title">레슨 후기</h2>
+      <div class="divider divider--center"></div>
+    </div>
+
+    <div class="rev-platform-tabs reveal">
+      <button class="rev-ptab active" id="ptab0" onclick="switchRevPlatform(0)" style="--pcolor:#7C3AED">
+        <span style="display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;background:#7C3AED;border-radius:4px;color:#fff;font-size:11px;font-weight:900;line-height:1">S</span>&nbsp; 숨고 후기
+      </button>
+      <button class="rev-ptab" id="ptab1" onclick="switchRevPlatform(1)" style="--pcolor:#03C75A">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg>&nbsp; 네이버 후기
+      </button>
+    </div>
+
+    <div class="rev-slider-wrap" id="revWrap0">
+      <div class="rev-slider" id="revSlider0"><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">박*호</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">축구를 배우고 싶어서 숨고에서 찾아봤는데 연락하자마자 너무 친절하게 상담해주셔서 바로 첫 수업을 진행했어요. 눈높이에 맞춰 잘 알려주시고 지루하지 않게 재밌게 훈련시켜주셔서 실력도 성장하는 기분입니다. 박지호 코치님한테 최소 6개월은 꾸준히 수업 받아보고 싶어요!!</p>
+      <div class="rev-tags"><span class="rev-tag">경험과 노하우가 많아요</span><span class="rev-tag">응대가 친절해요</span><span class="rev-tag">포인트를 잘 짚어줘요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">최*준</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">너무 친절하시고 재밌고 유익하게 교육해주시네요! 제 주변 지인들도 같이 동반해서 오고 싶을 정도로 재있는 수업입니다. 레슨비용도 부담없어서 좋아요! 앞으로도 더 오래 배워서 조기축구에서 실력으로 인정받고 싶습니다.</p>
+      <div class="rev-tags"><span class="rev-tag">가격 대비 만족스러워요</span><span class="rev-tag">응대가 친절해요</span><span class="rev-tag">포인트를 잘 짚어줘요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">김*현</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">조기축구랑 풋살을 즐겨하는데 실력이 늘지 않아서 박지호 코치님께 문의했는데 너무 친절하게 잘 알려주시고 진심으로 알려주시는 모습 보고 신뢰가 갔습니다. 첫 수업이 엊그제 같은데 벌써 3달이 지났네요. 실력이 많이 성장한 것 같아서 너무 좋습니다!</p>
+      <div class="rev-tags"><span class="rev-tag">가격 대비 만족스러워요</span><span class="rev-tag">기초부터 가르쳐줘요</span><span class="rev-tag">응대가 친절해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">이*수</div><div class="rev-type">엘리트 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">고등학교 축구부에서 수비수로 활동하며 수비력 향상에 대한 고민이 많았었는데 박지호 코치님을 만나 정말 큰 도움을 받았습니다. 수비 기본 자세부터 실전 경험의 노하우까지 아낌없이 전수해 주셔서 수비력에 많은 자신감을 갖게 됐습니다. 선수 지망생들께 강력히 추천합니다!!🔥</p>
+      <div class="rev-tags"><span class="rev-tag">경험과 노하우가 많아요</span><span class="rev-tag">기초부터 가르쳐줘요</span><span class="rev-tag">실력이 향상됐어요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">정*우</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">학창시절 이후 축구를 잊고 살다가 성인이 되어 제대로 배우고 싶어서 찾아봤습니다. 처음부터 인상이 너무 좋으셨고 제 실력 향상을 위해 진심으로 노력해주시는 모습이 너무너무 만족스럽습니다. 축구를 잘하게 되는 그 날까지 열심히 하겠습니다!!!🔥</p>
+      <div class="rev-tags"><span class="rev-tag">가격 대비 만족스러워요</span><span class="rev-tag">기초부터 가르쳐줘요</span><span class="rev-tag">커리큘럼이 탄탄해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">강*민</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">유일한 취미가 축구라서 좀 잘하고 싶다는 생각이 들어 찾아봤습니다. 처음 만났을 때 너무 예의바르시고 훈련도 만족스러워서 그 자리에서 바로 결제했습니다. 이론도 함께 설명해주시며 축구 자체에 대한 이해도를 높여주시는게 너무 좋았습니다! 최소 1년은 배워보겠습니다.</p>
+      <div class="rev-tags"><span class="rev-tag">경험과 노하우가 많아요</span><span class="rev-tag">기초부터 가르쳐줘요</span><span class="rev-tag">응대가 친절해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">윤*혁</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">직장에서 같이 풋살을 하게 돼서 배워보고 싶어서 문의드렸는데, 너무 친절하게 재밌게 알려주셔서 시간 가는 줄 모르고 운동했습니다! 실력이 부족한 걸 알면서도 용기를 주셔서 좋아질 수 있다는 희망이 생겼어요. 시설도 너무 좋고 근처에 이런 곳이 있다는 게 축복입니다.</p>
+      <div class="rev-tags"><span class="rev-tag">상담이 자세해요</span><span class="rev-tag">실력이 향상됐어요</span><span class="rev-tag">응대가 친절해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">한*준</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">축구를 하면 늘 삼각발이라 놀림받았던 저지만, 숨고를 통해 지르셀루 사커를 알게 됐어요. 몇 가지 포인트만 짚어주셨는데 슛이 훨씬 정확하고 강하게 나가는 걸 느껴서 깜짝 놀랐어요. 수업 분위기가 정말 재밌고 편했고, 추가 수업 바로 결제했습니다. 강력 추천드립니다!</p>
+      <div class="rev-tags"><span class="rev-tag">경험과 노하우가 많아요</span><span class="rev-tag">시세보다 저렴해요</span><span class="rev-tag">실력이 향상됐어요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">조*원</div><div class="rev-type">청소년 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">중학교 2학년 아들이 축구선수 꿈을 갖고 있어서 박지호 코치님께 상담을 요청했습니다. 선수로서 필요한 자세, 멘탈, 전술까지 체계적으로 커리큘럼을 짜주셔서 정말 감사했습니다. 3개월째 훈련 중인데 아이의 실력 향상이 눈에 띄게 보입니다. 학부모 입장에서 정말 믿고 맡길 수 있는 코치님이에요!</p>
+      <div class="rev-tags"><span class="rev-tag">맞춤 지도를 잘해줘요</span><span class="rev-tag">수업이 체계적이에요</span><span class="rev-tag">응대가 친절해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">송*찬</div><div class="rev-type">엘리트 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">대학 축구팀 미드필더로 뛰고 있는데 드리블과 킥 정확도를 개선하고 싶어서 찾아왔습니다. 선수 출신 코치님이시라 일반 레슨과 완전히 다른 수준의 피드백을 주셨어요. 플레이 영상을 분석해주시고 구체적인 개선 포인트를 짚어주셔서 단기간에 눈에 띄는 발전이 있었습니다. 엘리트 선수들에게 강력 추천합니다!</p>
+      <div class="rev-tags"><span class="rev-tag">경험과 노하우가 많아요</span><span class="rev-tag">실력이 향상됐어요</span><span class="rev-tag">포인트를 잘 짚어줘요</span></div>
+    </div></div>
+      <button class="rev-nav rev-prev" onclick="revSlide(0,-1)">&#8249;</button>
+      <button class="rev-nav rev-next" onclick="revSlide(0,1)">&#8250;</button>
+      <div class="rev-dots" id="revDots0"></div>
+    </div>
+
+    <div class="rev-slider-wrap" id="revWrap1" style="display:none">
+      <div class="rev-slider" id="revSlider1"><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">오*진</div><div class="rev-type">자녀 레슨 (초등)</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">아이가 초등학생인데 축구 배우고 싶다고 매일 얘기해서 지르셀루 싸커를 찾았습니다. 선생님께서 엄청 친절하시고 눈높이에 맞게 교육을 너무 잘해주셔서 3달째 꾸준히 참여하고 있습니다!! 잘 알려주셔서 감사합니다 🤗</p>
+      <div class="rev-tags"><span class="rev-tag">맞춤 지도를 잘해줘요</span><span class="rev-tag">수업이 체계적이에요</span><span class="rev-tag">초보자에게도 적합해요</span><span class="rev-tag">시설이 깔끔해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">류*영</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">축구를 배워서 내가 잘할 수 있을까 하다가 우연하게 지르셀루 싸커에서 배우게 됐어요. 세심하고 디테일하게 알려주시고 영상과 사진을 통해 비교분석과 함께 이해도를 높혀주셔서 훈련하는게 재밌네요. 앞으로도 잘 부탁드릴게요 코치님!🔥👍</p>
+      <div class="rev-tags"><span class="rev-tag">연습공간이 잘 되어있어요</span><span class="rev-tag">선생님이 열정적이에요</span><span class="rev-tag">맞춤 지도를 잘해줘요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">신*호</div><div class="rev-type">자녀 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">아이가 축구를 배우고싶어해 방문하게 되었습니다. 선생님께서 너무 친절하시고 아이 수준에 맞춰 수업을 진행하셨어요. 시설도 깔끔하고 체험 수업인데도 열정적인 모습에 감동이었습니다. 아이가 수업을 너무 만족해해 바로 1:1 레슨 결제하고 왔습니다^^</p>
+      <div class="rev-tags"><span class="rev-tag">맞춤 지도를 잘해줘요</span><span class="rev-tag">학생과 소통을 잘해요</span><span class="rev-tag">선생님이 열정적이에요</span><span class="rev-tag">시설이 깔끔해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">황*준</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">조기축구회에서 오래 뛰었지만 실력이 항상 제자리였는데 6개월 레슨 받고 나서 팀에서 완전히 다른 평가를 받게 됐어요. 볼 컨트롤, 패스 정확도, 공간 활용 능력이 모두 향상됐고 무엇보다 축구에 대한 이해도가 높아졌습니다. 코치님이 너무 열정적이셔서 매번 기대하며 옵니다.</p>
+      <div class="rev-tags"><span class="rev-tag">실력이 향상됐어요</span><span class="rev-tag">커리큘럼이 탄탄해요</span><span class="rev-tag">시설이 깔끔해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">배*민</div><div class="rev-type">청소년 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">고등학교 1학년인데 학교 축구부 주전이 되고 싶어서 방학 동안 개인 레슨을 받았습니다. 박지호 코치님이 제가 모르고 있던 약점들을 정확히 짚어주시고 경기에서 바로 쓸 수 있는 실전 기술들을 알려주셨어요. 다음 시즌엔 꼭 주전이 될 수 있을 것 같습니다!</p>
+      <div class="rev-tags"><span class="rev-tag">포인트를 잘 짚어줘요</span><span class="rev-tag">경험과 노하우가 많아요</span><span class="rev-tag">실력이 향상됐어요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">방*현</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">회사 풋살팀에 들어가게 됐는데 기초가 없어서 걱정이 많았어요. 코치님께서 정말 기초부터 하나하나 친절하게 알려주셨고, 4주 만에 팀원들한테 '많이 늘었다'는 소리를 들을 수 있었습니다. 레슨 스케줄도 유연하게 조정해주셔서 직장인도 다니기 편해요!</p>
+      <div class="rev-tags"><span class="rev-tag">기초부터 가르쳐줘요</span><span class="rev-tag">응대가 친절해요</span><span class="rev-tag">가격 대비 만족스러워요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">서*원</div><div class="rev-type">자녀 레슨 (초등)</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">초등학교 4학년 아들이 학교에서 축구 못한다고 친구들한테 놀림받아서 상처를 받았었는데, 레슨 받고 나서 아이가 완전히 달라졌어요! 자신감이 생기고 학교에서도 즐겁게 축구를 하게 됐다고 합니다. 코치님이 아이 눈높이에 맞춰 즐겁게 가르쳐주셔서 레슨 날을 너무 기다립니다.</p>
+      <div class="rev-tags"><span class="rev-tag">맞춤 지도를 잘해줘요</span><span class="rev-tag">초보자에게도 적합해요</span><span class="rev-tag">선생님이 열정적이에요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">전*성</div><div class="rev-type">엘리트 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">대학교 선수 출신인데 부상 후 재활 겸 개인기 보완을 위해 찾아왔습니다. 코치님께서 저의 신체 컨디션을 먼저 고려해주시고 단계적으로 훈련 강도를 높여주셔서 안전하게 복귀할 수 있었습니다. 멘탈 코칭까지 해주셔서 자신감도 많이 회복됐어요. 진심으로 감사드립니다!</p>
+      <div class="rev-tags"><span class="rev-tag">맞춤 지도를 잘해줘요</span><span class="rev-tag">선생님 실력이 좋아요</span><span class="rev-tag">상담이 자세해요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">임*찬</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">해운대에서 멀리 찾아왔는데 전혀 아깝지 않습니다. 시설이 정말 놀라울 정도로 좋고 코치님이 매우 전문적이에요. 레슨 전후로 제 플레이 영상을 비교해서 보여주시는데 그 차이가 확연해서 뿌듯합니다. 부산 최고의 축구 레슨 센터라고 생각합니다!</p>
+      <div class="rev-tags"><span class="rev-tag">실력이 향상됐어요</span><span class="rev-tag">시설이 깔끔해요</span><span class="rev-tag">선생님 실력이 좋아요</span></div>
+    </div><div class="rev-card">
+      <div class="rev-top">
+        <div><div class="rev-name">나*영</div><div class="rev-type">아마추어 레슨</div></div>
+        <div class="rev-stars">★★★★★ <span>5.0</span></div>
+      </div>
+      <p class="rev-text">1년 넘게 꾸준히 다니고 있는 장기 수강생입니다. 처음엔 그냥 취미로 시작했는데 지금은 조기축구회에서 팀의 핵심 플레이어가 됐어요. 단순히 기술만 가르치는 게 아니라 축구에 대한 열정과 철학을 함께 나눠주셔서 더욱 감사합니다. 앞으로도 오래오래 함께하고 싶습니다!</p>
+      <div class="rev-tags"><span class="rev-tag">경험과 노하우가 많아요</span><span class="rev-tag">커리큘럼이 탄탄해요</span><span class="rev-tag">응대가 친절해요</span></div>
+    </div></div>
+      <button class="rev-nav rev-prev" onclick="revSlide(1,-1)">&#8249;</button>
+      <button class="rev-nav rev-next" onclick="revSlide(1,1)">&#8250;</button>
+      <div class="rev-dots" id="revDots1"></div>
+    </div>
+
+    <div class="rev-links reveal">
+      <a href="https://www.soomgo.com/profile/users/13880071" target="_blank" rel="noopener"
+         class="btn rev-link-btn" style="--hcolor:#7C3AED">숨고 전체 후기 보기 →</a>
+      <a href="https://naver.me/5bCovCKo" target="_blank" rel="noopener"
+         class="btn rev-link-btn" style="--hcolor:#03C75A">네이버 플레이스 후기 보기 →</a>
+    </div>
+  </div>
+</section>
+
+<!-- LESSON PHOTOS -->
+<section id="lesson-photos" class="section section--dark" style="background:#060606">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <p class="eyebrow">GALLERY</p>
+      <h2 class="section__title">레슨 현장 사진</h2>
+      <div class="divider divider--center"></div>
+      <p style="color:#666;margin-top:14px;font-size:14px">실제 레슨 현장에서 촬영된 사진입니다</p>
+    </div>
+    <div class="lp-grid reveal"><div class="lp-item lp-wide" onclick="openLessonLB(this)"><img decoding="async" src="photo14.jpg" loading="lazy" alt="레슨 현장"><div class="lp-overlay"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div><div class="lp-item" onclick="openLessonLB(this)"><img decoding="async" src="photo15.jpg" loading="lazy" alt="레슨 현장"><div class="lp-overlay"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div><div class="lp-item" onclick="openLessonLB(this)"><img decoding="async" src="photo16.jpg" loading="lazy" alt="레슨 현장"><div class="lp-overlay"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div><div class="lp-item" onclick="openLessonLB(this)"><img decoding="async" src="photo17.jpg" loading="lazy" alt="레슨 현장"><div class="lp-overlay"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div><div class="lp-item" onclick="openLessonLB(this)"><img decoding="async" src="photo18.jpg" loading="lazy" alt="레슨 현장"><div class="lp-overlay"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div><div class="lp-item" onclick="openLessonLB(this)"><img decoding="async" src="photo19.jpg" loading="lazy" alt="레슨 현장"><div class="lp-overlay"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div><div class="lp-item" onclick="openLessonLB(this)"><img decoding="async" src="photo20.jpg" loading="lazy" alt="레슨 현장"><div class="lp-overlay"><svg viewBox="0 0 24 24" fill="white" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></div></div></div>
+  </div>
+</section>
+
+<!-- LESSON LIGHTBOX -->
+<div class="lp-lightbox" id="lpLightbox">
+  <button class="lightbox-close" onclick="closeLpLB()">✕</button>
+  <div class="lb-nav-zone lb-zone-left" onclick="lpPrev()"></div>
+  <div id="lpStage" class="lp-stage"></div>
+  <div class="lb-nav-zone lb-zone-right" onclick="lpNext()"></div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="section section--dark" style="background:#070707">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <p class="eyebrow">CONTACT</p>
+      <h2 class="section__title">레슨 문의</h2>
+      <p style="color:#666;margin-top:12px">양식 작성 후 하단의 카카오톡 레슨 문의 버튼을 눌러주세요.</p>
+      <div class="divider divider--center"></div>
+    </div>
+    <div class="contact-grid reveal">
+      <form onsubmit="return submitForm(event)">
+        <div class="form-group"><label class="form-label">이름</label><input class="form-input" type="text" placeholder="홍길동" required></div>
+        <div class="form-group"><label class="form-label">연락처</label><input class="form-input" type="tel" placeholder="010-0000-0000" required></div>
+        <div class="form-group"><label class="form-label">생년월일</label><input class="form-input" type="text" placeholder="예) 2000.01.01"></div>
+        <div class="form-group"><label class="form-label">지역</label><input class="form-input" type="text" placeholder="예) 부산 금정구"></div>
+        <div class="form-group"><label class="form-label">관심 레슨</label><input class="form-input" type="text" placeholder="아마추어 / 청소년 / 엘리트"></div>
+        <div class="form-group"><label class="form-label">문의 내용</label><textarea class="form-input" rows="4" placeholder="궁금한 점을 자유롭게 적어주세요."></textarea></div>
+        <p style="font-size:13px;color:#fff;line-height:1.8;margin-bottom:14px;padding:14px 16px;background:rgba(254,229,0,.12);border-radius:8px;border-left:3px solid #FEE500">
+  💡 양식 작성 후 아래 버튼을 누르시면 <strong style="color:#FEE500">내용이 자동으로 복사</strong>됩니다.<br>카카오톡 채팅창이 열리면 <strong style="color:#FEE500">붙여넣기(길게 누르기)</strong>로 바로 전송하실 수 있어요.
+</p>
+<button class="btn btn--full btn--lg" type="submit" style="background:#FEE500;color:#000;font-weight:900;gap:8px;font-size:16px"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 3C6.477 3 2 6.477 2 10.86c0 2.787 1.697 5.226 4.258 6.705l-.863 3.22c-.074.274.217.497.459.344l3.865-2.553A12.32 12.32 0 0 0 12 18.72c5.523 0 10-3.477 10-7.86S17.523 3 12 3z"/></svg>카카오톡 레슨 문의</button>
+      </form>
+      <div>
+        <div class="contact-info-item"><div class="contact-info-label">위치</div><div class="contact-info-value">부산대학로 38번길 33 B1</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">운영시간</div><div class="contact-info-value">매일 오전 6:00 ~ 밤 12:00</div></div>
+        <div class="contact-info-item"><div class="contact-info-label">사업자등록번호</div><div class="contact-info-value">226-61-00976</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-inner">
+    <div style="display:flex;align-items:center;gap:14px">
+      <img decoding="async" src="photo01.png" alt="JIRCELO" class="footer-emblem">
+      <div>
+        <p style="font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:3px;color:rgba(255,255,255,.6)">JIRCELO SOCCER</p>
+        <p class="footer-copy">© 2025 지르셀루 싸커. All rights reserved.<br>사업자등록번호 226-61-00976 · 부산대학로 38번길 33<br>대표 박지호</p>
+      </div>
+    </div>
+    <div class="footer-sns">
+      <a href="https://www.instagram.com/jircelo_official?igsh=MW8zbmk1MmRxOTRmcA==" onclick="window.open('https://www.instagram.com/jircelo_official?igsh=MW8zbmk1MmRxOTRmcA==','_blank');return false;" class="footer-sns-link" style="color:#E1306C"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="https://youtube.com/@jircelo" onclick="window.open('https://youtube.com/@jircelo','_blank');return false;" class="footer-sns-link" style="color:#FF0000"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M23.499 6.203a3.008 3.008 0 0 0-2.089-2.089c-1.87-.501-9.4-.501-9.4-.501s-7.509-.01-9.399.501a3.008 3.008 0 0 0-2.089 2.09C0 8.08 0 12.01 0 12.01s0 3.93.522 5.808a3.008 3.008 0 0 0 2.09 2.088c1.868.502 9.398.502 9.398.502s7.508 0 9.399-.502a3.008 3.008 0 0 0 2.089-2.088C24 15.941 24 12.01 24 12.01s0-3.93-.501-5.807zM9.609 15.601V8.408l6.264 3.602z"/></svg></a>
+      <a href="https://m.blog.naver.com/jircelosoccer" onclick="window.open('https://m.blog.naver.com/jircelosoccer','_blank');return false;" class="footer-sns-link" style="color:#03C75A"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/></svg></a>
+      <a href="https://open.kakao.com/me/jircelo" onclick="window.open('https://open.kakao.com/me/jircelo','_blank');return false;" class="footer-sns-link" style="color:#FEE500"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 3C6.477 3 2 6.477 2 10.86c0 2.787 1.697 5.226 4.258 6.705l-.863 3.22c-.074.274.217.497.459.344l3.865-2.553A12.32 12.32 0 0 0 12 18.72c5.523 0 10-3.477 10-7.86S17.523 3 12 3z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+var KAKAO="https://open.kakao.com/me/jircelo";
+var lbIdx=0;
+
+function playYT(card,id){
+  var cover=card.querySelector('.yt-cover');
+  if(!cover)return;
+  cover.innerHTML='<div style="position:absolute;inset:0"><iframe width="100%" height="100%" src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>';
+  card.onclick=null;card.style.cursor='default';
+}
+function scrollToId(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+function toggleMenu(){document.getElementById('hamburger').classList.toggle('open');document.getElementById('mobileMenu').classList.toggle('open');}
+function closeMenu(){document.getElementById('hamburger').classList.remove('open');document.getElementById('mobileMenu').classList.remove('open');}
+function submitForm(e){
+  e.preventDefault();
+  var inputs=e.target.querySelectorAll('input,textarea');
+  var labels=e.target.querySelectorAll('.form-label');
+  var msg='[지르셀루 싸커 레슨 문의]\n';
+  inputs.forEach(function(inp,i){
+    if(labels[i]&&inp.value.trim()){
+      msg+=labels[i].textContent+': '+inp.value.trim()+'\n';
+    }
+  });
+  // 클립보드 복사 시도
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(msg).then(function(){
+      showCopyToast();
+    }).catch(function(){});
+  }else{
+    try{var ta=document.createElement('textarea');ta.value=msg;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);showCopyToast();}catch(err){}
+  }
+  setTimeout(function(){window.open(KAKAO,'_blank');},400);
+  return false;
+}
+function showCopyToast(){
+  var t=document.getElementById('copyToast');
+  if(!t){t=document.createElement('div');t.id='copyToast';t.style.cssText='position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#FEE500;color:#000;font-weight:700;padding:12px 24px;border-radius:24px;z-index:9999;font-size:14px;box-shadow:0 4px 16px rgba(0,0,0,.3);transition:opacity .3s';document.body.appendChild(t);}
+  t.textContent='문의 내용이 복사됐어요! 카톡에 붙여넣기 해주세요 📋';
+  t.style.opacity='1';
+  setTimeout(function(){t.style.opacity='0';},3000);
+}
+
+// Scroll nav
+window.addEventListener('scroll',function(){
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50);
+});
+
+// Hero slideshow
+var slides=document.querySelectorAll('.hero-slide');
+var dots=document.querySelectorAll('.hero-dot');
+var idx=0;
+function showSlide(i){
+  slides.forEach(function(s,j){s.classList.toggle('active',j===i);});
+  dots.forEach(function(d,j){d.classList.toggle('active',j===i);});
+  idx=i;
+}
+showSlide(0);
+var timer=setInterval(function(){showSlide((idx+1)%slides.length);},3200);
+dots.forEach(function(d){
+  d.addEventListener('click',function(){
+    clearInterval(timer);
+    showSlide(parseInt(d.dataset.i));
+    timer=setInterval(function(){showSlide((idx+1)%slides.length);},3200);
+  });
+});
+
+// Lightbox
+function lbNodes(){return document.querySelectorAll('.gallery-item');}
+function lbSrc(el){var m=el.style.backgroundImage.match(/url\(["']?(.*?)["']?\)/);return m?m[1]:'';}
+function lbShow(i){
+  var n=lbNodes();
+  if(!n.length)return;
+  lbIdx=(i+n.length)%n.length;
+  document.getElementById('lbImg').src=lbSrc(n[lbIdx]);
+  document.getElementById('lbImg').style.transform='scale(1)';
+  lbScale=1;
+}
+function openLightbox(i){
+  lbShow(i);
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function lbPrev(){lbShow(lbIdx-1);}
+function lbNext(){lbShow(lbIdx+1);}
+document.getElementById('lbImg').addEventListener('click',closeLightbox);
+document.addEventListener('keydown',function(e){
+  if(document.getElementById('lightbox').classList.contains('open')){
+    if(e.key==='Escape')closeLightbox();
+    if(e.key==='ArrowLeft')lbPrev();
+    if(e.key==='ArrowRight')lbNext();
+  }
+});
+// 모바일 핀치 줌
+var lbScale=1,lbDist=0;
+document.addEventListener('touchstart',function(e){
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.touches.length===2){lbDist=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);}
+},{passive:true});
+document.addEventListener('touchmove',function(e){
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.touches.length===2){
+    var d=Math.hypot(e.touches[0].clientX-e.touches[1].clientX,e.touches[0].clientY-e.touches[1].clientY);
+    lbScale=Math.min(4,Math.max(0.5,lbScale*(d/lbDist)));
+    document.getElementById('lbImg').style.transform='scale('+lbScale+')';
+    lbDist=d;
+  }
+},{passive:true});
+document.addEventListener('touchend',function(e){if(e.touches.length<2&&lbScale<1){lbScale=1;document.getElementById('lbImg').style.transform='scale(1)';}});
+// 모바일 스와이프
+var lbTX=0;
+document.addEventListener('touchstart',function(e){if(document.getElementById('lightbox').classList.contains('open')&&e.touches.length===1)lbTX=e.touches[0].clientX;},{passive:true});
+document.addEventListener('touchend',function(e){
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  var dx=e.changedTouches[0].clientX-lbTX;
+  if(Math.abs(dx)>50&&lbScale<=1){if(dx>0)lbPrev();else lbNext();}
+},{passive:true});
+
+// Video tabs
+function switchTab(n){
+  document.querySelectorAll('.vid-tab').forEach(function(t,i){t.classList.toggle('active',i===n);});
+  document.querySelectorAll('.vid-tab-content').forEach(function(c,i){c.classList.toggle('active',i===n);});
+}
+
+// Reveal on scroll
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+// Review slider
+var revState = [{idx:0,auto:null},{idx:0,auto:null}];
+var revCards = [
+  document.querySelectorAll('#revSlider0 .rev-card'),
+  document.querySelectorAll('#revSlider1 .rev-card')
+];
+
+function revVisible(sliderIdx){
+  return window.innerWidth <= 768 ? 1 : window.innerWidth <= 1024 ? 2 : 3;
+}
+function revTotal(si){return document.querySelectorAll('#revSlider'+si+' .rev-card').length;}
+function revMaxIdx(si){return Math.max(0, revTotal(si) - revVisible(si));}
+
+function revSetPos(si, idx){
+  var cards = document.querySelectorAll('#revSlider'+si+' .rev-card');
+  if(!cards.length) return;
+  var w = cards[0].offsetWidth + 20;
+  document.getElementById('revSlider'+si).style.transform = 'translateX(-'+(idx*w)+'px)';
+  revState[si].idx = idx;
+  revBuildDots(si);
+}
+function revSlide(si, dir){
+  var cur = revState[si].idx;
+  var max = revMaxIdx(si);
+  var next = Math.max(0, Math.min(max, cur + dir));
+  revSetPos(si, next);
+  clearRevAuto(si);
+  startRevAuto(si);
+}
+function revBuildDots(si){
+  var wrap = document.getElementById('revDots'+si);
+  if(!wrap) return;
+  var max = revMaxIdx(si)+1;
+  wrap.innerHTML = '';
+  for(var i=0;i<max;i++){
+    var d=document.createElement('button');
+    d.className='rev-dot'+(i===revState[si].idx?' active':'');
+    d.setAttribute('data-i',i);
+    (function(i2){d.onclick=function(){revSetPos(si,i2);clearRevAuto(si);startRevAuto(si);};})(i);
+    wrap.appendChild(d);
+  }
+}
+function startRevAuto(si){
+  clearRevAuto(si);
+  revState[si].auto = setInterval(function(){
+    var next = (revState[si].idx + 1) > revMaxIdx(si) ? 0 : revState[si].idx + 1;
+    revSetPos(si, next);
+  }, 3800);
+}
+function clearRevAuto(si){clearInterval(revState[si].auto);}
+
+function switchRevPlatform(idx){
+  document.getElementById('ptab0').classList.toggle('active', idx===0);
+  document.getElementById('ptab1').classList.toggle('active', idx===1);
+  document.getElementById('revWrap0').style.display = idx===0 ? '' : 'none';
+  document.getElementById('revWrap1').style.display = idx===1 ? '' : 'none';
+}
+
+// 터치 스와이프
+[0,1].forEach(function(si){
+  var el = document.getElementById('revSlider'+si);
+  if(!el) return;
+  var tx=0;
+  el.addEventListener('touchstart',function(e){tx=e.touches[0].clientX;},{passive:true});
+  el.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-tx;
+    if(Math.abs(dx)>40){revSlide(si,dx>0?-1:1);}
+  },{passive:true});
+});
+
+// 초기화
+window.addEventListener('load',function(){
+  revBuildDots(0); revBuildDots(1);
+  startRevAuto(0);
+});
+window.addEventListener('resize',function(){
+  revSetPos(0, Math.min(revState[0].idx, revMaxIdx(0)));
+  revSetPos(1, Math.min(revState[1].idx, revMaxIdx(1)));
+  revBuildDots(0); revBuildDots(1);
+});
+
+
+// Review expand
+function toggleRevText(btn){
+  var card = btn.closest('.rev-card');
+  var txt = card.querySelector('.rev-text');
+  var expanded = txt.classList.toggle('expanded');
+  btn.textContent = expanded ? '접기 ▲' : '더 보기 ▼';
+}
+document.addEventListener('DOMContentLoaded', function(){
+  document.querySelectorAll('.rev-card').forEach(function(card){
+    var txt = card.querySelector('.rev-text');
+    if(!txt) return;
+    var btn = document.createElement('button');
+    btn.className = 'rev-expand-btn';
+    btn.textContent = '더 보기 ▼';
+    btn.onclick = function(e){ e.stopPropagation(); toggleRevText(this); };
+    txt.insertAdjacentElement('afterend', btn);
+  });
+});
+
+
+// Lesson photo lightbox
+var lpIdx = 0;
+function lpNodes(){return Array.prototype.slice.call(document.querySelectorAll('.lp-item'));}
+function lpRender(i){
+  var n = lpNodes();
+  if(!n.length) return;
+  lpIdx = (i + n.length) % n.length;
+  var src = n[lpIdx].querySelector('img').getAttribute('src');
+  var stage = document.getElementById('lpStage');
+  stage.innerHTML = '';
+  var im = document.createElement('img');
+  im.id = 'lpImg';
+  im.src = src;
+  im.onclick = closeLpLB;
+  stage.appendChild(im);
+}
+function openLessonLB(el){
+  var n = lpNodes();
+  var i = n.indexOf(el);
+  lpRender(i < 0 ? 0 : i);
+  document.getElementById('lpLightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLpLB(){
+  document.getElementById('lpLightbox').classList.remove('open');
+  document.getElementById('lpStage').innerHTML='';
+  document.body.style.overflow='';
+}
+function lpPrev(){lpRender(lpIdx-1);}
+function lpNext(){lpRender(lpIdx+1);}
+document.addEventListener('keydown',function(e){
+  if(document.getElementById('lpLightbox').classList.contains('open')){
+    if(e.key==='Escape')closeLpLB();
+    if(e.key==='ArrowLeft')lpPrev();
+    if(e.key==='ArrowRight')lpNext();
+  }
+});
+var lpTX=0;
+document.addEventListener('touchstart',function(e){
+  if(document.getElementById('lpLightbox').classList.contains('open'))lpTX=e.touches[0].clientX;
+},{passive:true});
+document.addEventListener('touchend',function(e){
+  if(document.getElementById('lpLightbox').classList.contains('open')){
+    var dx=e.changedTouches[0].clientX-lpTX;
+    if(Math.abs(dx)>50){if(dx>0)lpPrev();else lpNext();}
+  }
+},{passive:true});
+
+</script>
+</body>
+</html>
